@@ -1,0 +1,5 @@
+export enum CATEGORY_TYPE {
+    RANDOM = 'RANDOM',
+    CATEGORY = 'CATEGORY',
+    SEARCH = 'SEARCH',
+}

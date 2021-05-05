@@ -1,0 +1,19 @@
+.page
+    display: flex
+    justify-content: space-between
+
+    &__wrap
+        width: 65%
+        min-height: 100vh
+        padding: 40px 140px
+        &--small
+            width: 35%
+            padding: 40px
+            background: $grey
+    &__title
+        +font-stile($montserrat-bold, 32px, $black)
+        line-height: 44px
+    &__subtitle
+        +font-stile($montserrat-semi-bold, 24px, $black)
+        line-height: 44px
+        padding-bottom: 40px

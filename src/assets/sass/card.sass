@@ -1,0 +1,44 @@
+.card
+    width: 100%
+    max-width: 680px
+    padding: 40px
+    margin-bottom: 20px
+    border-radius: 20px
+    background-color: $grey
+
+    &__header
+        padding-bottom: 8px
+        display: flex
+        justify-content: flex-end
+    &__icon-wrap
+        +size(40px)
+        background-color: $white
+        flex-shrink: 0
+    &__body,
+    &__footer
+        display: flex
+        justify-content: space-between
+    &__footer
+        align-items: center
+    &__content-wrap
+        flex: 1
+        padding-left: 20px
+    &__link-wrap,
+    &__date
+        +font-stile($montserrat, 10px, $light-grey)
+    &__link
+        color: $blue
+        padding-left: 4px
+        &:hover
+            text-decoration: underline
+    &__content
+        +font-stile($montserrat-semi-bold, 18px, $black)
+        line-height: 26px
+        padding: 4px 0 24px
+    &__category
+        +font-stile($montserrat-semi-bold, 14px, $black)
+        padding: 6px 20px
+        border-radius: 6px
+        background-color: $white
+    &__button
+        margin-left: auto
