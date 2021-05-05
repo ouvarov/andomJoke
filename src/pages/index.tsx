@@ -41,7 +41,7 @@ const IndexPage: React.FC = () => {
             </div>
             {!!jokes.favoriteList.length && (
                 <div className="page__wrap page__wrap--small">
-                    favorite
+                    <h3 className="page__subtitle page__subtitle--grey">Favorite</h3>
                     {jokes.favoriteList.map(
                         ({ categories, created_at, icon_url, id, updated_at, url, value }: JokeTypes) => (
                             <Card
@@ -54,6 +54,7 @@ const IndexPage: React.FC = () => {
                                 updated_at={updated_at}
                                 url={url}
                                 liked
+                                className="card--favorite"
                             />
                         ),
                     )}

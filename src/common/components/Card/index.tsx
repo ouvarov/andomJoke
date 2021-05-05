@@ -15,9 +15,10 @@ type CardPropsType = {
     url: string;
     value: string;
     liked: boolean;
+    className?: string;
 };
 
-const Card: React.FC<CardPropsType> = ({ url, id, value, icon_url, updated_at, categories, liked }) => {
+const Card: React.FC<CardPropsType> = ({ url, id, value, icon_url, updated_at, categories, liked, className }) => {
     const dispatch = useDispatch();
 
     const handleOnClick = (jokeId: string): void => {
@@ -29,7 +30,7 @@ const Card: React.FC<CardPropsType> = ({ url, id, value, icon_url, updated_at, c
     };
 
     return (
-        <div className="card">
+        <div className={`card ${className}`}>
             <header className="card__header">
                 <button
                     className="card__button"
