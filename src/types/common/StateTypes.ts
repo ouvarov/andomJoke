@@ -5,7 +5,7 @@ export type StateTypes = {
         data: JokeTypes[];
         favoriteList: JokeTypes[];
         typeJoke: string;
-        categories: [];
+        categories: [string];
         jokeCategory: string;
         value: string;
     };

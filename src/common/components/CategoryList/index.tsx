@@ -35,10 +35,6 @@ const CategoryList: React.FC = () => {
 
     const handleQuery = () => {
         switch (data.typeJoke) {
-            case CATEGORY_TYPE.RANDOM:
-                return axios.get(`${API}random`).then(response => {
-                    dispatch(addJokeAction(response.data));
-                });
             case CATEGORY_TYPE.SEARCH:
                 return axios.get(`${API}search?query=${data.value}`).then(response => {
                     dispatch(addJokesAction(response.data.result));
@@ -54,18 +50,11 @@ const CategoryList: React.FC = () => {
         }
     };
 
-    const isDisabled = () => {
-        if (data.typeJoke === CATEGORY_TYPE.SEARCH && !data.value.length) {
-            return true;
-        } else if (data.typeJoke === CATEGORY_TYPE.CATEGORY && !data.jokeCategory.length) {
-            return true;
-        }
-        return false;
-    };
+    const isDisabled = () =>
+        (data.typeJoke === CATEGORY_TYPE.SEARCH && !data.value.length) ||
+        (data.typeJoke === CATEGORY_TYPE.CATEGORY && !data.jokeCategory.length);
 
-    useEffect(() => {
-        getCategories();
-    }, []);
+    useEffect(getCategories, []);
 
     return (
         <div className="category-list">
@@ -89,7 +78,7 @@ const CategoryList: React.FC = () => {
             </label>
             {data.typeJoke === CATEGORY_TYPE.CATEGORY && (
                 <div className="category-buttons">
-                    {data.categories.map((item: string) => (
+                    {data.categories.map(item => (
                         <Button
                             key={item}
                             className={classNames('category-buttons__item', {
