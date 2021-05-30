@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/andomJoke/static/css/main.2cbf92c4.chunk.css",
+    "main.js": "/andomJoke/static/js/main.a0080343.chunk.js",
+    "main.js.map": "/andomJoke/static/js/main.a0080343.chunk.js.map",
+    "runtime-main.js": "/andomJoke/static/js/runtime-main.2f79d5c8.js",
+    "runtime-main.js.map": "/andomJoke/static/js/runtime-main.2f79d5c8.js.map",
+    "static/js/2.f883cc2b.chunk.js": "/andomJoke/static/js/2.f883cc2b.chunk.js",
+    "static/js/2.f883cc2b.chunk.js.map": "/andomJoke/static/js/2.f883cc2b.chunk.js.map",
+    "index.html": "/andomJoke/index.html",
+    "static/css/main.2cbf92c4.chunk.css.map": "/andomJoke/static/css/main.2cbf92c4.chunk.css.map",
+    "static/js/2.f883cc2b.chunk.js.LICENSE.txt": "/andomJoke/static/js/2.f883cc2b.chunk.js.LICENSE.txt",
+    "static/media/App.sass": "/andomJoke/static/media/montserrat-800.f556c238.eot"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.2f79d5c8.js",
+    "static/js/2.f883cc2b.chunk.js",
+    "static/css/main.2cbf92c4.chunk.css",
+    "static/js/main.a0080343.chunk.js"
+  ]
+}
