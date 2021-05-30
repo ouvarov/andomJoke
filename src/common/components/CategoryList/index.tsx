@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import axios from 'axios';
 import classNames from 'classnames';
@@ -16,10 +16,12 @@ import {
     setValueAction,
     addJokeAction,
     addJokesAction,
+    setAlertTextAction,
 } from '../../../store/actions';
 
 const CategoryList: React.FC = () => {
     const dispatch = useDispatch();
+    const [handleClick, setHandleClick] = useState<boolean>(false);
 
     const data = useSelector((state: StateTypes) => state.jokes);
 
@@ -36,17 +38,26 @@ const CategoryList: React.FC = () => {
     const handleQuery = () => {
         switch (data.typeJoke) {
             case CATEGORY_TYPE.SEARCH:
-                return axios.get(`${API}search?query=${data.value}`).then(response => {
-                    dispatch(addJokesAction(response.data.result));
-                });
+                return axios
+                    .get(`${API}search?query=${data.value}`)
+                    .then(response => {
+                        dispatch(addJokesAction(response.data.result));
+                    })
+                    .catch(error => dispatch(setAlertTextAction(error.response.data.message)));
             case CATEGORY_TYPE.CATEGORY:
-                return axios.get(`${API}random?category=${data.jokeCategory}`).then(response => {
-                    dispatch(addJokeAction(response.data));
-                });
+                return axios
+                    .get(`${API}random?category=${data.jokeCategory}`)
+                    .then(response => {
+                        dispatch(addJokeAction(response.data));
+                    })
+                    .catch(error => dispatch(setAlertTextAction(error.response.data.message)));
             default:
-                return axios.get(`${API}random`).then(response => {
-                    dispatch(addJokeAction(response.data));
-                });
+                return axios
+                    .get(`${API}random`)
+                    .then(response => {
+                        dispatch(addJokeAction(response.data));
+                    })
+                    .catch(error => dispatch(setAlertTextAction(error.response.data.message)));
         }
     };
 
@@ -118,12 +129,14 @@ const CategoryList: React.FC = () => {
                     isDisabled={isDisabled()}
                     className="category-list__button"
                     onClick={() => {
+                        setHandleClick(true);
                         handleQuery();
                     }}
                 >
                     Get a joke
                 </Button>
             </div>
+            {handleClick && !data.data.length && <div className="category-list__empty">Result not found</div>}
         </div>
     );
 };

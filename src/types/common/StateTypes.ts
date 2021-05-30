@@ -8,5 +8,6 @@ export type StateTypes = {
         categories: [string];
         jokeCategory: string;
         value: string;
+        alertText: string;
     };
 };

@@ -5,13 +5,14 @@ import { Provider } from 'react-redux';
 import App from './App';
 import { persistor, store } from './store/reducer';
 
-import { Loading } from './common/components';
+import { Loading, Alert } from './common/components';
 
 ReactDOM.render(
     <React.StrictMode>
         <Provider store={store}>
             <PersistGate loading={<Loading />} persistor={persistor}>
                 <App />
+                <Alert />
             </PersistGate>
         </Provider>
     </React.StrictMode>,

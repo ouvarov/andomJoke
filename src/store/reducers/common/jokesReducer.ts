@@ -3,7 +3,15 @@ import { jokeActionType, jokeType } from '../types';
 import { JokeTypes } from '../../../types';
 
 const jokesReducer = (
-    jokes: jokeType = { data: [], favoriteList: [], typeJoke: 'RANDOM', categories: [], jokeCategory: '', value: '' },
+    jokes: jokeType = {
+        data: [],
+        favoriteList: [],
+        typeJoke: 'RANDOM',
+        categories: [],
+        jokeCategory: '',
+        value: '',
+        alertText: '',
+    },
     action: jokeActionType,
 ) => {
     switch (action.type) {
@@ -41,6 +49,10 @@ const jokesReducer = (
                 }),
                 favoriteList: jokes.favoriteList.filter(item => item.id !== action.jokeId),
             };
+        case ACTIVE_TYPE.SET_ALERT_TEXT:
+            return { ...jokes, alertText: action.alertText };
+        case ACTIVE_TYPE.CLEAR_ALERT_TEXT:
+            return { ...jokes, alertText: '' };
         default:
             return jokes;
     }

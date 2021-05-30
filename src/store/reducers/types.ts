@@ -9,6 +9,7 @@ export type jokeActionType = {
     jokeCategory: string;
     value: string;
     jokeId: string;
+    alertText: string;
 };
 
 export type jokeType = {
@@ -18,4 +19,5 @@ export type jokeType = {
     typeJoke: string;
     jokeCategory: string;
     value: string;
+    alertText: string;
 };

@@ -45,7 +45,7 @@ const IndexPage: React.FC = () => {
                     {jokes.favoriteList.map(
                         ({ categories, created_at, icon_url, id, updated_at, url, value }: JokeTypes) => (
                             <Card
-                                key={id}
+                                key={`favorite-${id}`}
                                 id={id}
                                 value={value}
                                 categories={categories}
